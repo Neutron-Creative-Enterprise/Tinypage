@@ -13,7 +13,7 @@
 
         <button
           type="button"
-          class="flex px-3 py-1 text-sm ml-auto text-white text-center bg-indigo-600 hover:bg-indigo-500 rounded font-semibold w-auto max-w-xs justify-center align-center mr-2"
+          class="flex px-3 py-1 text-sm ml-auto text-white text-center bg-indigo-600 hover:bg-indigo-500 rounded font-semibold w-auto max-w-xs justify-center align-center"
           @click="consentToPolicy"
         >
           I accept
@@ -65,10 +65,27 @@ export default Vue.extend({
 .consent-banner {
   position: fixed;
   bottom: 80px;
-  left: 25%;
-  right: 25%;
-  width: 50%;
-  @apply p-2 rounded shadow-lg flex items-center justify-center bg-white;
+  left: 50%;
+  transform: translateX(-50%);
+  @apply p-2 px-4 rounded shadow-lg flex items-center justify-center bg-white w-11/12 max-w-lg;
+}
+
+@media(max-width:1024px) {
+  .consent-banner {
+    flex-direction: column;
+    @apply text-center items-center justify-center;
+  }
+
+  .consent-banner p {
+    max-width: 200px;
+  }
+
+  br {
+    display: none;
+  }
+  .consent-banner button {
+    @apply w-full mt-2 mx-auto;
+  }
 }
 
 .close {
